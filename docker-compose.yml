@@ -1,9 +1,10 @@
 services:
   postgres:
+    container_name: postgres-experiments
     image: postgres:13-alpine
     volumes:
-      - ../docker-demo-server/init.sql/:/docker-entrypoint-initdb.d/init.sql
-      - ./db:/var/lib/postgresql/data
+      - ./init.sql/:/docker-entrypoint-initdb.d/init.sql
+      - db:/var/lib/postgresql/data
     environment:
       - PGDATABASE=experiments
       - POSTGRES_DB=experiments
